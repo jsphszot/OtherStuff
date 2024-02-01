@@ -1,0 +1,201 @@
+%%%%%%%%%%%%%%%%%
+% This CV was created by Joseph Szot by modifying a template created using altacv.cls, originally written by:
+% (v1.7, 9 August 2023) written by LianTze Lim (liantze@gmail.com). Compiles with pdfLaTeX, XeLaTeX and LuaLaTeX.
+%
+%% It may be distributed and/or modified under the
+%% conditions of the LaTeX Project Public License, either version 1.3
+%% of this license or (at your option) any later version.
+%% The latest version of this license is in
+%%    http://www.latex-project.org/lppl.txt
+%% and version 1.3 or later is part of all distributions of LaTeX
+%% version 2003/12/01 or later.
+%%%%%%%%%%%%%%%%
+
+\documentclass[10pt,a4paper,ragged2e,withhyper]{altacv}
+%% AltaCV uses the fontawesome5 and packages.
+%% See http://texdoc.net/pkg/fontawesome5 for full list of symbols.
+
+% Change the page layout if you need to
+\geometry{left=1.30cm,right=1.30cm,top=1.5cm,bottom=1.5cm,columnsep=1.2cm}
+
+% The paracol package lets you typeset columns of text in parallel
+\usepackage{paracol}
+
+% Change the font if you want to, depending on whether
+% you're using pdflatex or xelatex/lualatex
+% WHEN COMPILING WITH XELATEX PLEASE USE
+% xelatex -shell-escape -output-driver="xdvipdfmx -z 0" sample.tex
+\ifxetexorluatex
+  % If using xelatex or lualatex:
+  \setmainfont{Roboto Slab}
+  \setsansfont{Lato}
+  \renewcommand{\familydefault}{\sfdefault}
+\else
+  % If using pdflatex:
+  \usepackage[rm]{roboto}
+  \usepackage[defaultsans]{lato}
+  % \usepackage{sourcesanspro}
+  \renewcommand{\familydefault}{\sfdefault}
+\fi
+
+% Change the colours if you want to
+\definecolor{SlateGrey}{HTML}{2E2E2E}
+\definecolor{LightGrey}{HTML}{666666}
+\definecolor{DarkPastelRed}{HTML}{450808}
+\definecolor{PastelRed}{HTML}{8F0D0D}
+\definecolor{GoldenEarth}{HTML}{E7D192}
+\colorlet{name}{black}
+\colorlet{tagline}{PastelRed}
+\colorlet{heading}{DarkPastelRed}
+\colorlet{headingrule}{GoldenEarth}
+\colorlet{subheading}{PastelRed}
+\colorlet{accent}{PastelRed}
+\colorlet{emphasis}{SlateGrey}
+\colorlet{body}{LightGrey}
+
+% Change some fonts, if necessary
+\renewcommand{\namefont}{\Huge\rmfamily\bfseries}
+\renewcommand{\personalinfofont}{\footnotesize}
+\renewcommand{\cvsectionfont}{\large\rmfamily\bfseries}
+\renewcommand{\cvsubsectionfont}{\large\bfseries}
+
+
+% Change the bullets for itemize and rating marker
+% for \cvskill if you want to
+\renewcommand{\cvItemMarker}{{\small\textbullet}}
+\renewcommand{\cvRatingMarker}{\faCircle}
+% ...and the markers for the date/location for \cvevent
+% \renewcommand{\cvDateMarker}{\faCalendar*[regular]}
+% \renewcommand{\cvLocationMarker}{\faMapMarker*}
+
+
+% If your CV/résumé is in a language other than English,
+% then you probably want to change these so that when you
+% copy-paste from the PDF or run pdftotext, the location
+% and date marker icons for \cvevent will paste as correct
+% translations. For example Spanish:
+% \renewcommand{\locationname}{Ubicación}
+% \renewcommand{\datename}{Fecha}
+
+\renewcommand{\cvevent}[4]{%
+  {\large\color{emphasis}#1}
+  \smallskip
+  \normalsize
+  \ifstrequal{#2}{}{}{
+  \textbf{\color{accent}#2}
+  \smallskip}
+  \ifstrequal{#3}{}{}{%
+    {
+      {\BeginAccSupp{method=pdfstringdef,ActualText={\datename:}}\cvDateMarker\EndAccSupp{}%
+      ~#3}%
+    }}%
+  \ifstrequal{#4}{}{}{%
+    {\hspace{1mm}
+      {\BeginAccSupp{method=pdfstringdef,ActualText={\locationname:}}\cvLocationMarker\EndAccSupp{}%
+        ~#4}%
+    }}\par
+  \medskip\normalsize
+}
+\newcommand{\cvskills}[2]{%
+  {\large\color{emphasis}#1}
+  \smallskip
+  \normalsize
+  \ifstrequal{#2}{}{}{
+  %%\textbf{#2}
+  #2
+  \smallskip}
+}
+
+
+\begin{document}
+
+%%\name{Joseph Szot}
+%%\tagline{Senior Data Specialist} 
+%%\personalinfo{%
+%%  % Not all of these are required!
+%%  \email{jsphszot@gmail.com} 
+%%  \linkedin{jsphszot} 
+%%  \github{jsphszot}
+%%}
+%%\makecvheader
+
+  \begingroup
+    {\namefont\color{name}\MakeUppercase{Joseph Szot}}
+    \medskip
+    \hspace{4mm}
+    {\taglinefont\color{tagline}Senior Data Specialist}
+    \medskip
+    \hspace{3mm}
+    {\personalinfofont\email{jsphszot@gmail.com}\linkedin{jsphszot}  \github{jsphszot}\par}
+  \endgroup\medskip
+
+%% Depending on your tastes, you may want to make fonts of itemize environments slightly smaller
+%%\AtBeginEnvironment{itemize}{\small}
+
+
+%%\vspace{5mm}
+
+\cvsection{Experience}
+\vspace{2mm}
+
+\cvevent{Papa Inc.}{Senior Data Analyst -- Remote}{Nov 2021 -- Jan 2024.}{Miami, FL} 
+
+Data \& Analytics – Early member of founding data team. POC for Product and App teams, though participated and lead transversal projects. Tasks included data development, management and democratization; development and reporting of OKR metrics; in-house data consulting as to guide and prioritize development of transversal projects; debugging app-versions and back-end updates via data; and solidification of a data-driven culture. Tech workflow based mainly on SQL scripting and automation (dbt, jinja, Snowflake, Fivetran, LookerML, Python, GitHub Actions) and dashboarding (Looker).
+
+\divider
+
+\cvevent{LATAM Airlines}
+{Data Scientist -- Remote}
+{Nov 2020 -- Feb 2021}{Santiago, Chile}
+Advanced Analytics – Member of specialized team leading transversal projects to optimize workflow, decisions and results through data. Technical workflow involved Python (scripting, modeling), BigQuery and git, alongside soft skills required for project alignment with commercial counterparts.
+
+\divider
+
+\cvevent{LATAM Cargo}
+{Data Analyst -- Onsite}
+{Mar 2019 -- Oct 2020}{Miami, FL}
+Revenue Management – Main duties involved revision of weekly results, dashboard development, implementation and use of GCP, and task automation via python/sql. Developed a fully automated competition tracker (web scrapping, data management, dashboarding and email automation) saving whole days off manual tasks and increasing scope from 3 main competitors to all trackable flights. 
+
+\divider
+
+\cvevent{LATAM Airlines}
+{Data Analyst -- Onsite}
+{Nov 2020 -- Feb 2021}{Santiago, Chile}
+
+Revenue Management Best Practices – Lead team transition from a manual Excel/Microstrategy standard to an automated workflow based on use of R scripts, Cron jobs and GCP tools (primarily BigQuery). Coordinated, developed and automated multi-area reports and dashboards ranging from C-level to other analysts. 
+
+\divider
+
+\cvsection{Education}
+\vspace{2mm}
+
+\cvevent{Pontificia Universidad Católica de Chile}{BBA(Econ)}{Mar 2013 -- Nov 2017}{Santiago, Chile} Faculty of Business and Economics
+
+\divider
+
+\cvevent{Pontifícia Universidade Católica do Rio de Janeiro}{Exchange}{Feb 2017 -- Jul 2017}{RJ, Brazil} Faculty of Business and Economics.
+
+\divider
+
+\cvevent{The University of Hong Kong (HKU)}{Exchange}{Jul 2015 -- Dec 2015}{HKSAR}
+Faculty of Business and Economics. Awarded \textit{Banco Santander Scholarship for studies in China (\$7500usd)}
+
+\vspace{2mm}
+
+\cvsection{Skills}
+\vspace{2mm}
+\cvskills{Data Tools:}{SQL, Python, Looker, dbt (jinja), Fivetran, git (GitHub Actions), R, JS, sheets/excel.}{}{}
+
+\divider
+
+\cvskills{Languages:}{English and Spanish as native languages. Fluent in Portuguese and French (reading and verbal skills Excellent, writing Good). Advanced German (reading, writing and verbal skills Good).}
+
+\divider
+
+\cvskills{Other:}{Advanced instrumentalist of guitar and other strings. I enjoy being outdoors doing activities such as hiking, jogging, cycling, skating, yoga, gardening, climbing, sailing and diving. Sometimes I geek around with Code art.}
+
+
+%%\end{paracol}
+
+
+\end{document}
